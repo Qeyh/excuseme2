@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excuse Generator</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            font-size: 56px;
+            color: #333;
+            text-transform: uppercase;
+        }
+        #excuse-display {
+            margin: 20px;
+            font-size: 24px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .category-btn {
+            margin: 10px;
+            padding: 25px 30px;
+            font-size: 28px;
+            cursor: pointer;
+            background-color: #8bc34a;
+            color: #fff;
+            border: none;
+            border-radius: 5%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .category-btn:hover {
+            background-color: #7cb342;
+            transform: scale(1.05);
+        }
+
+        /* Different colors for each button */
+        .category-btn:nth-child(1) {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .category-btn:nth-child(2) {
+            background-color: #2196F3; /* Blue */
+        }
+
+        .category-btn:nth-child(3) {
+            background-color: #FFC107; /* Yellow */
+        }
+
+        .category-btn:nth-child(4) {
+            background-color: #FF5722; /* Orange */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Excuse Generator</h1>
+    
+    <div id="excuse-display">Tap a category button for a random excuse!</div>
+
+    <div>
+        <button class="category-btn" onclick="generateExcuse('work')">Work</button>
+        <button class="category-btn" onclick="generateExcuse('school')">School</button>
+        <button class="category-btn" onclick="generateExcuse('parties')">Parties</button>
+        <button class="category-btn" onclick="generateExcuse('dates')">Dates</button>
+    </div>
+
+    <script>
+        const excusesByCategory = {
+            work: [
+            "I'm not feeling well and think it's best to rest at home.",
+            "I have a family emergency that requires my immediate attention.",
+            "My car broke down, and I'm unable to make it to work.",
+            "There's a home maintenance issue that needs urgent fixing.",
+            "I have a doctor's appointment that I can't reschedule.",
+            "I'm feeling a bit under the weather and don't want to risk spreading any illness.",
+            "I have a personal matter that I need to attend to.",
+            "I'm experiencing technical issues with my computer and can't work remotely.",
+            "I need a mental health day to recharge and focus on self-care.",
+            "There's a childcare issue that requires my presence at home."
+            ],
+            school: [
+            "I'm feeling unwell and need a day to recover at home.",
+            "There's a family emergency that requires my immediate attention.",
+            "I have a doctor's appointment that I can't reschedule.",
+            "My pet is sick, and I need to take care of them.",
+            "I'm dealing with a personal matter that requires my presence.",
+            "There's a home maintenance issue that needs urgent attention.",
+            "I have a school-related event or competition to attend.",
+            "I'm feeling overwhelmed and need a mental health day.",
+            "I have a pre-scheduled family trip or event.",
+            "I'm participating in a community service or volunteer activity."
+            ],
+            parties: [
+            "I have a prior commitment that I can't change.",
+            "I'm not feeling well and don't want to spread any illness.",
+            "I have a family obligation that I can't miss.",
+            "I'm dealing with a personal matter and need some time alone.",
+            "I have a work-related task or project to complete.",
+            "I'm taking a break from social events for self-reflection.",
+            "I'm attending a workshop or class on that day.",
+            "I have a health-related appointment that can't be rescheduled.",
+            "I'm focusing on a personal goal and need to prioritize my time.",
+            "I'm participating in a charity or community service event."
+            ],
+            dates: [
+            "I have a family emergency and need to prioritize that.",
+            "I'm not feeling well and don't want to risk getting you sick.",
+            "I have a work-related commitment that I can't reschedule.",
+            "I'm dealing with a personal matter and need some time to myself.",
+            "I forgot about a prior engagement that I can't change.",
+            "I have a friend in need, and I want to be there for them.",
+            "I'm attending a family function that I can't miss.",
+            "I have a health-related appointment that I can't postpone.",
+            "I'm facing unexpected car troubles and need to address them.",
+            "I'm taking a break from dating to focus on personal growth."
+            ]
+        };
+
+        function generateExcuse(category) {
+            const excuseDisplay = document.getElementById('excuse-display');
+
+            // Choose a random excuse from the selected category
+            const excusesForCategory = excusesByCategory[category];
+            const randomIndex = Math.floor(Math.random() * excusesForCategory.length);
+            const randomExcuse = excusesForCategory[randomIndex];
+
+            excuseDisplay.innerText = randomExcuse;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excuseme-wa-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: excuseme-wa
+  template:
+    metadata:
+      labels:
+        app: excuseme-wa
+    spec:
+      containers:
+      - name: excuseme-wa
+        image: winterzone2/excuseme:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: excuseme-loadbalancer
+spec:
+  selector:
+    app: excuseme-wa
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
