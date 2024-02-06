@@ -15,7 +15,6 @@ spec:
       containers:
       - name: excuseme-wa
         image: winterzone2/excuseme:latest
-        imagePullPolicy: Never
         ports:
         - containerPort: 80
 ---
