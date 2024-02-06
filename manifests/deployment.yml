@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: winterzone2excuseme 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: winterzone2excuseme
+  template:
+    metadata:
+      labels:
+        app: winterzone2excuseme 
+    spec:
+      containers:
+        - name: winterzone2excuseme 
+          image: excuseregistry.azurecr.io/winterzone2excuseme
+          ports:
+          - containerPort: 80
