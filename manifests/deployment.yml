@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: excuseme-wa
-        image: winterzone2/excuseme:latest
+        image: excuseregistry.azurecr.io/excuseme:latest
         ports:
         - containerPort: 80
